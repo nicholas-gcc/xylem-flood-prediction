@@ -3,32 +3,129 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Fanno Creek Flooding Predictor</title>
-    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fanno Creek Flood Prediction and Resources</title>
+    <!-- help normalize the differences between css files between different browsers -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+    <!--Font-awesome used for social icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
+    <script src="https://kit.fontawesome.com/edd286fb9b.js" crossorigin="anonymous"></script>
+    <!--Font used-->
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,900|Source+Sans+Pro:300,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
 
 </head>
 
+
 <body>
-    <div class="login">
-        <h2>Predict Flooding in Portland's Fanno Creek</h2>
-        <h3> Enter the following values to predict flooding based on today's data</h3>
-        <!-- Main Input For Receiving Query to our ML -->
-        <form action="{{ url_for('predict')}}" method="post">
-            <input type="text" name="gageheight" placeholder="Gage Height" required="required" />
-            <input type="text" name="discharge" placeholder="Discharge" required="required" />
-            <input type="text" name="turbidity" placeholder="Turbidity" required="required" />
+    <header>
+        <div class="logo">
+            <img src="" alt="">
+        </div>
+        <button class="nav-toggle" aria-label="toggle navigation">
+                <!--animation template-->
+                <span class="hamburger"></span>
+            </button>
+        <!--provide navigation links-->
+        <nav class="nav">
+            <!--nav__list is a subcomponent of nav-->
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <!--set link to home section-->
+                    <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
+                    <li class="nav__item"><a href="index.html#overview" class="nav__link">Overview</a></li>
+                    <li class="nav__item"><a href="index.html#about" class="nav__link">About Me</a></li>
+                    <li class="nav__item"><a href="index.html#work" class="nav__link">My Projects</a></li>
+            </ul>
+        </nav>
 
-            <button type="submit" class="btn">Predict</button>
-        </form>
+        </div>
+    </header>
 
+    <section class="intro" id="home">
+        <!--double hyphen to indicate modifier class-->
+        <h1 class="section__title section__title--intro">
+            <strong>Fanno Creek - Portland, Oregon</strong>
+        </h1>
+        <p class="section__subtitle section__subtitle--intro">Flood Prediction and Resources</p>
+        <img src="{{url_for('static', filename='fanno_creek_trail_aerial.jpg')}}" class="intro__img">
+    </section>
+
+
+    <section class="flood-prediction-input" id="flood-prediction">
+        <h2 class="section__title section__title--flood-prediction">Predict Flooding in Portland's Fanno Creek</h2>
+        <p class="section__subtitle section__subtitle--flood-prediction"> Enter the following values to predict flooding based on today's data</p>
         <br>
-        <br> {{ prediction_text }}
+        <!-- Main Input For Receiving Query to our ML -->
+        <div class="flood-prediction__body">
+            <form action="{{ url_for( 'predict')}} " method="post">
+                <input type="text " name="gageheight " placeholder="Gage Height " required="required " />
+                <input type="text " name="discharge " placeholder="Discharge " required="required " />
+                <input type="text " name="turbidity " placeholder="Turbidity " required="required " />
+                <br>
+                <button type="submit " class="btn ">Predict</button>
+            </form>
 
-    </div>
+            <br>
+            <br> {{ prediction_text }}
+
+        </div>
+    </section>
+
+
+    <!-- resources -->
+    <section class="my-resources" id="resources">
+        <h2 class="section__title section__title--resources">Flood Protection Resources</h2>
+        <div class="resources">
+            <div class="resourcesection">
+                <h3 class="section__title section__title--resourcesection">What Causes Floods?</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+                    aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur
+                </p>
+                <a href="#resources" class="btn">Learn More</a>
+            </div>
+            <!-- / overview section -->
+
+            <div class="resourcesection">
+                <h3 class="section__title section__title--resourcesection">Infrastrucure and Protection</h3>
+                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+                </p>
+                <a href="#resources" class="btn">Learn More</a>
+            </div>
+            <!-- / overview section -->
+
+            <div class="resourcesection">
+                <h3 class="section__title section__title--resourcesection">How to Protect Yourself</h3>
+                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
+                    velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+                </p>
+                <a href="#resources" class="btn">Learn More</a>
+            </div>
+            <!-- / overview section -->
+
+        </div>
+        <!-- / overview -->
+
+    </section>
+
+    <!-- About me -->
+    <section class="about-fanno-creek" id="about">
+        <h2 class="section__title section__title--about">Fanno Creek Hydrologic Unit</h2>
+        <p class="section__subtitle section__subtitle--about">Where adventure meets nature</p>
+
+        <div class="about-fanno-creek__body">
+            <p>
+                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia
+                animi, id est laborum et dolorum fuga.</p>
+            <p>
+                Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus
+                autem quibusdam et aut officiis debitis aut rerum.
+            </p>
+        </div>
+
+        <img src="{{url_for('static', filename='Fanno_Creek_map.png')}}" alt="" class="about-fanno-creek__img">
+    </section>
 
 
 </body>
