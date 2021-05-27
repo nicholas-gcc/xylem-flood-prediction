@@ -33,10 +33,10 @@
             <ul class="nav__list">
                 <li class="nav__item">
                     <!--set link to home section-->
-                    <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
-                    <li class="nav__item"><a href="index.html#overview" class="nav__link">Overview</a></li>
-                    <li class="nav__item"><a href="index.html#about" class="nav__link">About Me</a></li>
-                    <li class="nav__item"><a href="index.html#work" class="nav__link">My Projects</a></li>
+                    <li class="nav__item"><a href="{{ url_for('.home', _anchor='home') }}" class="nav__link">Home</a></li>
+                    <li class="nav__item"><a href="{{ url_for('.home', _anchor='flood-prediction') }}" class="nav__link">Forecasts</a></li>
+                    <li class="nav__item"><a href="{{ url_for('.home', _anchor='resources') }}" class="nav__link">Resources</a></li>
+                    <li class="nav__item"><a href="{{ url_for('.home', _anchor='about') }}" class="nav__link">About Fanno Creek</a></li>
             </ul>
         </nav>
 
@@ -46,15 +46,15 @@
     <section class="intro" id="home">
         <!--double hyphen to indicate modifier class-->
         <h1 class="section__title section__title--intro">
-            <strong>Fanno Creek, Portland</strong>
+            <strong>Floodopedia</strong> Flood Prediction for Portland
         </h1>
-        <p class="section__subtitle section__subtitle--intro">Flood Prediction and Resources</p>
+        <p class="section__subtitle section__subtitle--intro">Live Predictions and Resources</p>
         <img src="{{url_for('static', filename='fanno_creek_trail_aerial.jpg')}}" class="intro__img">
     </section>
 
 
     <section class="flood-prediction-input" id="flood-prediction">
-        <h2 class="section__title section__title--flood-prediction">Predict Flooding in Portland's Fanno Creek</h2>
+        <h2 class="section__title section__title--flood-prediction">Flooding in Fanno Creek</h2>
         <p class="section__subtitle section__subtitle--flood-prediction"> Enter the following values to predict flooding based on today's data</p>
         <br>
         <!-- Main Input For Receiving Query to our ML -->
@@ -80,27 +80,25 @@
         <div class="resources">
             <div class="resourcesection">
                 <h3 class="section__title section__title--resourcesection">What Causes Floods?</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-                    aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur
+                <p>Floods seem to come out of nowhere. One day it’s been raining, next thing you know, you’re in the middle of a flood. So, where do floods come from? Read on for a simple introduction to flood formation.
                 </p>
-                <a href="#resources" class="btn">Learn More</a>
+                <a href="{{url_for('flood_causes')}}" class="btn">Learn More</a>
             </div>
             <!-- / overview section -->
 
             <div class="resourcesection">
-                <h3 class="section__title section__title--resourcesection">Infrastrucure and Protection</h3>
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+                <h3 class="section__title section__title--resourcesection">Managing Risk of Floods</h3>
+                <p>Managing flood risks can help to reduce the damages caused by flooding. There are some measures that you, organisations, and governments can take to protect your homes. Find out the 3 key measures that should be taken to manage floods.
                 </p>
-                <a href="#resources" class="btn">Learn More</a>
+                <a href="{{url_for('flood_risks')}}" class="btn">Learn More</a>
             </div>
             <!-- / overview section -->
 
             <div class="resourcesection">
                 <h3 class="section__title section__title--resourcesection">How to Protect Yourself</h3>
-                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
-                    velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+                <p>There are many different pieces of advice regarding what to do during a flood. In times of emergency, it is not easy to recall everything you’ve seen or heard. Here are 10 key things to remember during a flood.
                 </p>
-                <a href="#resources" class="btn">Learn More</a>
+                <a href="{{url_for('flood_protection')}}" class="btn">Learn More</a>
             </div>
             <!-- / overview section -->
 
@@ -115,18 +113,32 @@
         <p class="section__subtitle section__subtitle--about">Where adventure meets nature</p>
 
         <div class="about-fanno-creek__body">
+
+            <p> Fanno Creek is an urban stream that begins in the southwest hills of Portland and joins the Tualatin River after 15 miles. </p>
             <p>
-                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia
-                animi, id est laborum et dolorum fuga.</p>
-            <p>
-                Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus
-                autem quibusdam et aut officiis debitis aut rerum.
+                Originally, Fanno Creek was surrounded by a dense forest packed with an abundance of bear, deer, beaver and cutthroat trout. Over time, water flowing to the creek slowed and streamed through trees and vegetation, causing a channel to meander across the
+                landscape to the floodplain, forming the Fanno Creek we know today
             </p>
         </div>
 
         <img src="{{url_for('static', filename='Fanno_Creek_map.png')}}" alt="" class="about-fanno-creek__img">
+
     </section>
 
+    <!-- Footer -->
+    <footer class="footer">
+        <!-- replace with your own email address -->
+        <a href="https://github.com/nicholas-gcc/xylem-flood-prediction/blob/main/README.md" class="footer__link">Make an Open Source Contribution!</a>
+        <ul class="social-list">
+            <li class="social-list__item">
+                <a class="social-list__link" href="https://github.com/nicholas-gcc/xylem-flood-prediction">
+                    <i class="fab fa-github"></i>
+                </a>
+            </li>
+        </ul>
+    </footer>
+
+    <script src="{{url_for('static', filename='js/index.js') }}"></script>
 
 </body>
 

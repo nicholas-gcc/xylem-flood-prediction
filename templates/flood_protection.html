@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flood Protection</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
+
+    <!-- Update these with your own fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700|Roboto+Slab:400,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="" alt="">
+        </div>
+        <button class="nav-toggle" aria-label="toggle navigation">
+                <!--animation template-->
+                <span class="hamburger"></span>
+            </button>
+        <!--provide navigation links-->
+        <nav class="nav">
+            <!--nav__list is a subcomponent of nav-->
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <!--set link to home section-->
+                    <li class="nav__item"><a href="{{ url_for('.home', _anchor='home') }}" class="nav__link">Home</a></li>
+                    <li class="nav__item"><a href="{{ url_for('.home', _anchor='flood-prediction') }}" class="nav__link">Forecasts</a></li>
+                    <li class="nav__item"><a href="{{ url_for('.home', _anchor='resources') }}" class="nav__link">Resources</a></li>
+                    <li class="nav__item"><a href="{{ url_for('.home', _anchor='about') }}" class="nav__link">About Fanno Creek</a></li>
+            </ul>
+        </nav>
+
+        </div>
+    </header>
+
+    <section class="intro">
+        <h1 class="section__title section__title--intro">
+            <strong>Flood Preparedness</strong>
+        </h1>
+        <p class="section__subtitle section__subtitle--intro">10 Tips to Protect Yourself and Your Neighbours</p>
+        <img src="{{ url_for('static', filename='flood_clipart.png') }}" alt="" class="intro__img portfolio__img">
+    </section>
+
+    <div class="portfolio-item-individual">
+        <p>Floods. It’s just a little water, right? People don’t tend to take them too seriously, unlike other natural disasters like earthquakes. Yet, floods have the capacity to cause significant damage too. They displace people from their homes, cause
+            large scale property damage, and even loss of lives. Floodwater can take days or even weeks to recede, prolonging the disruption to our lives. If you live in an area at high risk of flooding, here are some tips to minimise the impact of flooding.</p>
+        <h3>1. Plan Your Evacuation Route</h3>
+        <p>Work out the safest route from your home or work to the nearest evacuation centres. Identify any potential movements that could be cut off by floodwaters. In case you do not make it to your evacuation centre, take note of any high points along
+            the way to wait for rescue safely.</p>
+        <h3>2. Check for warnings and updates</h3>
+        <p>Regularly check our website for flood warnings and updates, especially during periods of heavy rain. Tune in to the local radio station as well for similar instructions and updates.
+        </p>
+        <h3>3. Make an emergency kit</h3>
+        <p>Your emergency kit should be within easy reach and ready to go. It should contain 3 days’ worth of drinking water and long-life food, toiletries; like soap, toilet paper, sanitary items, toothpaste and toothbrush, first aid kit, waterproof bags
+            for valuables; including cash and documents, protective blankets and clothing, sunscreen and insect repellent.</p>
+        <h3>4. Inform family, friends, neighbours, and vice versa</h3>
+        <p>Ensure those close to you know what your plans are, in case of separation during a flood.</p>
+        <h3>5. Don’t walk or drive through floodwater</h3>
+        <p>Floodwater may hide any uneven terrain, which could potentially cause injuries and drowning. Floodwater also causes aquaplaning and skidding, increasing risk of accidents.</p>
+        <h3>6. Wear solid shoes and bring along a long stick</h3>
+        <p>If you have to walk through floodwater, ensure you have proper footwear, as the ground may be slippery, and use a stick to check the depth and current of the water.</p>
+        <h3>7. Stay off bridges over fast-moving water</h3>
+        <p>Bridges can be easily swept away without warning by fast-moving water.</p>
+        <h3>8. Stay away from fallen power lines</h3>
+        <p>Electricity can be conducted through water, so stay far away to avoid electrocution.</p>
+        <h3>9. Don’t turn on electricity or gas before checking with professionals</h3>
+        <p>Similarly, there is a risk of electrocution if you turn on electricity and appliances before it is safe to do so. Gas supply and appliances may be flooded and unsafe to use, and attempting to do so before checking may cause fires or explosions.</p>
+        <h3>10. Boil tap water</h3>
+        <p>Lastly, water supply may be contaminated after flood events. Remember to always boil tap water before consumption</p>
+
+
+        <h4>References</h4>
+        <h5>1. ABC Emergency. Plan for an emergency: Flood [Internet]. Ultimo, NSW: ABC News; 2020 [updated 2020 Dec 14; cited 2021 May 25]. Available from https://www.abc.net.au/emergency/plan-for-emergency-flood/12412050#during
+        </h5>
+        <h5>2. Ready. Floods [Internet]. USA: Ready; [year unknown] [updated 2021 Apr 9; cited 2021 May 25]. Available from https://www.ready.gov/floods
+        </h5>
+        <h5>3. Urban A. 10 Ways To Prepare For A Flood And 11 Things To Do After [Internet]. [place unknown]: Urban Survival Site; [year unknown] [cited 2021 May 25]. Available from https://urbansurvivalsite.com/21-things-to-do-before-and-after-a-flood/</h5>
+        <h5>4. Berendsohn R. 4 Rules for Electrical Safety After a Flood [Internet]. [place unknown]: Popular Mechanics; 2017 [cited 2021 May 25]. Available from https://www.popularmechanics.com/adventure/outdoors/tips/a8231/4-rules-for-electri cal-safety-after-a-flood-14261065/
+        </h5>
+    </div>
+
+    <script src="{{ url_for('static',filename='js/index.js') }}"></script>
+
+</body>
+
+</html>
