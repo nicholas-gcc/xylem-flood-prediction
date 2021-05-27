@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What Causes Floods?</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
+
+    <!-- Update these with your own fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700|Roboto+Slab:400,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="" alt="">
+        </div>
+        <button class="nav-toggle" aria-label="toggle navigation">
+                <!--animation template-->
+                <span class="hamburger"></span>
+            </button>
+        <!--provide navigation links-->
+        <nav class="nav">
+            <!--nav__list is a subcomponent of nav-->
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <!--set link to home section-->
+                    <li class="nav__item"><a href="{{ url_for('.home', _anchor='home') }}" class="nav__link">Home</a></li>
+                    <li class="nav__item"><a href="{{ url_for('.home', _anchor='flood-prediction') }}" class="nav__link">Forecasts</a></li>
+                    <li class="nav__item"><a href="{{ url_for('.home', _anchor='resources') }}" class="nav__link">Resources</a></li>
+                    <li class="nav__item"><a href="{{ url_for('.home', _anchor='about') }}" class="nav__link">About Fanno Creek</a></li>
+            </ul>
+        </nav>
+
+        </div>
+    </header>
+
+
+    <section class="intro">
+        <h1 class="section__title section__title--intro">
+            <strong>Causes of Floods</strong>
+        </h1>
+        <p class="section__subtitle section__subtitle--intro">A look at common factors</p>
+        <img src="{{ url_for('static', filename='flood_clipart.png') }}" alt="" class="intro__img portfolio__img">
+    </section>
+
+    <div class="portfolio-item-individual">
+        <p>The risk of flooding is set to surge dramatically due to the rise in frequency and intensity in heavy downpours globally over the past few decades.</p>
+        <p>Given the reality of climate change, we should expect the continual rise in global temperatures, with the frequency and intensity expected to grow even further. To mitigate this problem, some proactive measures can be taken by governments and
+            organisations and even members of the public.</p>
+        <h3>Retrofitting homes</h3>
+        <img src="{{ url_for('static', filename='retrofitted-home.png') }}">
+        <h6>It can be useful to regularly check on your drainage systems, electrical wiring and conduct regular maintenance on your home.</h6>
+        <p>This can be seen as an extra precaution to reduce damage and injuries by installing electrical outlets and sockets higher on the wall, waterproofing the house and ensuring the windows and doors have waterproof seals.</p>
+        <h3>Permeable pavements, sidewalks or gardens</h3>
+        <img src="{{ url_for('static', filename='green_spaces.png') }}" , width="400">
+        <h6>An example of how greenery can be incorporated into homes</h6>
+        <p>Green spaces are seen as a luxury not only to our eyes, but for the world as well. By incorporating sustainable drainage into green spaces i.e. replacing impermeable concrete with permeable materials like grass, rainwater will be drained into
+            the soil. This process is known as infiltration and can sustain plant life. By incorporating infiltration, it prevents clogged drainage systems caused by the impermeable concrete resulting in the overflow of water into streets and sidewalks
+            and hence, a flood. </p>
+        <h3>Land-use planning</h3>
+        <p>Government regulations regarding the development of land that reduces flooding and its impacts. This includes prohibiting development, using land in high flood risk areas for open space uses like parks, and mandatory building standards for floodproofing
+            to minimise the susceptibility to flood damage.</p>
+        <p>There are various ways to manage flood risks, from an organisational to individual level. Most measures are relatively inexpensive and easily implemented. Thus, it is imperative that action is taken to reduce the growing risk of flooding.</p>
+
+
+        <h4>References</h4>
+        <h5>1. https://www.epa.gov/green-infrastructure/manage-flood-risk</h5>
+        <h5>2. https://www.wavin.com/en-en/news-cases/news/10-measures-to-prevent-urban-flooding
+        </h5>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+
+</body>
+
+</html>

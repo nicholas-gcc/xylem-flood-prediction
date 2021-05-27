@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What Causes Floods?</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
+
+    <!-- Update these with your own fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700|Roboto+Slab:400,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="" alt="">
+        </div>
+        <button class="nav-toggle" aria-label="toggle navigation">
+                <!--animation template-->
+                <span class="hamburger"></span>
+            </button>
+        <!--provide navigation links-->
+        <nav class="nav">
+            <!--nav__list is a subcomponent of nav-->
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <!--set link to home section-->
+                    <li class="nav__item"><a href="{{ url_for('.home', _anchor='home') }}" class="nav__link">Home</a></li>
+                    <li class="nav__item"><a href="{{ url_for('.home', _anchor='flood-prediction') }}" class="nav__link">Forecasts</a></li>
+                    <li class="nav__item"><a href="{{ url_for('.home', _anchor='resources') }}" class="nav__link">Resources</a></li>
+                    <li class="nav__item"><a href="{{ url_for('.home', _anchor='about') }}" class="nav__link">About Fanno Creek</a></li>
+            </ul>
+        </nav>
+
+        </div>
+    </header>
+
+
+    <section class="intro">
+        <h1 class="section__title section__title--intro">
+            <strong>Causes of Floods</strong>
+        </h1>
+        <p class="section__subtitle section__subtitle--intro">A look at common factors</p>
+        <img src="{{ url_for('static', filename='flood_clipart.png') }}" alt="" class="intro__img portfolio__img">
+    </section>
+
+    <div class="portfolio-item-individual">
+        <p>Floods are one of the most common natural disasters in the world. In fact, they are an increasing threat to our lives, in terms of frequency and severity. Here are some reasons for the occurrence of floods.</p>
+        <img src="img/portfolio-details.jpg" alt="">
+        <h3>Heavy Rainfall</h3>
+        <p>Heavy rain, especially within a short period of time, is the top cause of flooding. When there is intense rainfall, drainage systems, both natural and man-made, are not able to drain water as quickly as it needs to, thus causing floods. In recent
+            times, climate change has brought even heavier rainfall, increasing the chances and severity of flooding.</p>
+        <h3>Proximity to Rivers</h3>
+        <p>Rivers and watercourses run the risk of flooding during rainfall, thus people living in their proximity get subjected to floods, even without heavy rain. Increasingly heavier rainfall over time only increases the likelihood of overflowing rivers</p>
+        <h3>Urbanisation</h3>
+        <p>Cities are largely made of concrete and other impermeable materials. This prevents water from draining into the ground, which is naturally porous. When drainage systems reach their capacity, water collects on the surface and causes flooding.</p>
+        <h3>Vegetation cover</h3>
+        <p>Vegetations are good at intercepting water. When it rains, plants intercept a lot of water through leaves and branches, slowing the rate at which water hits the ground. Roots dig deep into the ground and create spaces for water to drain into.
+            Thus, in areas with poor vegetation cover, like cities, there is a high chance of flooding.</p>
+        <p>These causes are not isolated, and there can be multiple reasons applied at the same time to why an area floods. It will be difficult to displace increasingly large amounts of water and there is only so much man-made drainage systems can handle.
+            Thus, greater effort needs to be put in to reduce climate change, and to integrate more flora into our concrete environment.
+        </p>
+
+        <h4>References</h4>
+        <h5>1. Jamal H. Causes, Importance And Prediction of Flood [Internet]. [place unknown]: About Civi; 2017 [cited 2021 May 25]. Available from https://www.aboutcivil.org/Flood-importance-causes-factors-prediction.html</h5>
+        <h5>2. B-Air. What Causes Floods? Top 8 Common Causes of Flooding [Internet]. [place unknown]: B-Air; 2018 [cited 2021 May 25]. Available from https://b-air.com/2018/02/common-causes-flooding/
+        </h5>
+        <h5>3. Ossola A, Burns M. How your garden could help stop your city flooding [Internet]. Melbourne, Victoria: The Conversation; 2016 [cited 2021 May 25]. Available from https://theconversation.com/how-your-garden-could-help-stop-your-city-flooding-4247</h5>
+        <h5>4. Sustainable Green Initiative. How trees help in preventing floods [Internet]. [place unknown]: Sustainable Green Initiative; [date unknown] [cited 2021 May 25]. Available from http://www.greening.in/2013/05/how-trees-help-in-preventing-floods.html</h5>
+    </div>
+
+    <script src="{{ url_for('static',filename='js/index.js') }}"></script>
+
+</body>
+
+</html>

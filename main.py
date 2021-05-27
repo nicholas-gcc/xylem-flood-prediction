@@ -20,5 +20,17 @@ def predict():
     else:
         return render_template('index.html', prediction_text="It is unlikely to flood today")
 
+@app.route('/flood_causes', methods=['GET'])
+def flood_causes():
+    return render_template('flood_causes.html')
+
+@app.route('/flood_protection', methods=['GET'])
+def flood_protection():
+    return render_template('flood_protection.html')
+
+@app.route('/flood_risks', methods=['GET'])
+def flood_risks():
+    return render_template('flood_risks.html')
+
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
