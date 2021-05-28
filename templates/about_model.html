@@ -57,16 +57,16 @@
         <p>The prediction model used in Floodopedia leverages on Fanno Creek flooding data made available from the years 2015-2017. The access to an extensive dataset made a supervised learning model more suitable for predictive modelling. A meta-analysis
             of the correlations between temperature, turbidity, gage height, discharge and flooding in the form of a correlation matrix reveals gage height, discharge and turbidity to be the strongest classifiers for flooding.
         </p>
-        <img src="{{ url_for('static', filename='heatmap.png ') }}" , style="height:350px">
+        <img src="{{ url_for('static', filename='heatmap.png') }}" , style="height:350px">
         <h6>A heatmap diagram of the correlation matrix</h6>
         <p>However, flooding is considered an extreme and rare event, thus yielding relatively low correlation values with the aforementioned factors. Despite this, the characteristics of turbidity, gage height and discharge being the strongest classifiers
             for flooding, and the strong correlation of these three factors with one another, make them suitable classifier variables for predicting floods. Thus, turbidity, discharge and gage height are used as classifiers for flood predictionin the
             with the Random Forest Algorithm, an algorithm that builds multiple decision trees and merges them together, using a 75/25 training-test split.</p>
-        <img src="{{ url_for('static', filename='random-forest.png ') }}" , style="height:350px">
+        <img src="{{ url_for('static', filename='random-forest.png') }}" , style="height:350px">
         <h6>A random forest merges decision trees together and performs majority voting for decision-making</h6>
         <p>The strong correlation between the three factors with one another enhances decision-making by increasing the multi-dimensionality associated with flood predictions, yielding an accuracy rate of over 98% in predicting floods on the test data.</p>
         </p>
-        <img src="{{ url_for('static', filename='accuracy_prediction.png ') }}" , style="width:450px">
+        <img src="{{ url_for('static', filename='accuracy_prediction.png') }}" , style="width:450px">
         <h6>Calculated goodness of fit and prediction accuracy on Jupyter Notebook</h6>
 
         <p>Floodopedia uses web-scraping from the
