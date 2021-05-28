@@ -46,7 +46,7 @@
     <section class="intro" id="home">
         <!--double hyphen to indicate modifier class-->
         <h1 class="section__title section__title--intro">
-            <strong>Floodopedia</strong> Flood Prediction for Portland
+            <strong>Floodopedia</strong> Flood Prediction for Fanno Creek
         </h1>
         <p class="section__subtitle section__subtitle--intro">Live Predictions and Resources</p>
         <img src="{{url_for('static', filename='fanno_creek_trail_aerial.jpg')}}" class="intro__img">
@@ -54,23 +54,100 @@
 
 
     <section class="flood-prediction-input" id="flood-prediction">
-        <h2 class="section__title section__title--flood-prediction">Flooding in Fanno Creek</h2>
-        <p class="section__subtitle section__subtitle--flood-prediction"> Enter the following values to predict flooding based on today's data</p>
-        <br>
-        <!-- Main Input For Receiving Query to our ML -->
-        <div class="flood-prediction__body">
-            <form action="{{ url_for( 'predict')}} " method="post">
-                <input type="text " name="gageheight " placeholder="Gage Height " required="required " />
-                <input type="text " name="discharge " placeholder="Discharge " required="required " />
-                <input type="text " name="turbidity " placeholder="Turbidity " required="required " />
-                <br>
-                <button type="submit " class="btn ">Predict</button>
-            </form>
+        <h2 class="section__title section__title--flood-prediction">Most Recent Reports</h2>
+        <div class="prediction-data">
+            <!-- Portfolio item 01 -->
+            <div class="prediction-data__item">
+                <h4 class="section__title section__title--prediction-data__item">
+                    Temperature, water, degrees Celsius
+                </h4>
+                <p class="section__subtitle section__subtitle--prediction-data__item">
+                    <strong>{{temp_value}}</strong>
+                </p>
+                <p class="section__subtitle section__subtitle--prediction-data__item">
+                    Last updated: {{temp_date}}
+                </p>
 
-            <br>
-            <br> {{ prediction_text }}
+            </div>
 
+            <!-- Portfolio item 02 -->
+            <div class="prediction-data__item">
+                <h4 class="section__title section__title--prediction-data__item">
+                    Discharge, cubic feet per second
+                </h4>
+                <p class="section__subtitle section__subtitle--prediction-data__item">
+                    <strong>{{discharge_value}}</strong>
+                </p>
+                <p class="section__subtitle section__subtitle--prediction-data__item">
+                    Last updated: {{discharge_date}}
+                </p>
+
+            </div>
+
+            <!-- Portfolio item 03 -->
+            <div class="prediction-data__item">
+                <h4 class="section__title section__title--prediction-data__item">
+                    Gage height / stream stage, feet
+                </h4>
+                <p class="section__subtitle section__subtitle--prediction-data__item">
+                    <strong>{{gage_height}}</strong>
+                </p>
+                <p class="section__subtitle section__subtitle--prediction-data__item">
+                    Last updated: {{gage_height_date}}
+                </p>
+
+            </div>
+
+            <!-- Portfolio item 04 -->
+            <div class="prediction-data__item">
+                <h4 class="section__title section__title--prediction-data__item">
+                    Specific conductance, water, microsiemens per cm</h4>
+                <p class="section__subtitle section__subtitle--prediction-data__item">
+                    <strong>{{conductance_value}}</strong>
+                </p>
+                <p class="section__subtitle section__subtitle--prediction-data__item">
+                    Last updated: {{conductance_value_date}}
+                </p>
+
+            </div>
+
+            <!-- Portfolio item 05 -->
+            <div class="prediction-data__item">
+                <h4 class="section__title section__title--prediction-data__item">
+                    Dissolved oxygen, water, mg per liter
+                </h4>
+                <p class="section__subtitle section__subtitle--prediction-data__item">
+                    <strong>{{dissolved_oxygen}}</strong>
+                </p>
+                <p class="section__subtitle section__subtitle--prediction-data__item">
+                    Last updated: {{dissolved_oxygen_date}}
+                </p>
+
+            </div>
+
+            <!-- Portfolio item 06 -->
+            <div class="prediction-data__item">
+                <h4 class="section__title section__title--prediction-data__item">
+                    Turbidity, water, formazin nephelometric units (FNU)
+                </h4>
+                <p class="section__subtitle section__subtitle--prediction-data__item">
+                    <strong>{{turbidity}}</strong>
+                </p>
+                <p class="section__subtitle section__subtitle--prediction-data__item">
+                    Last updated: {{turbidity_date}}
+                </p>
+            </div>
         </div>
+        <h2 class="prediction_text"> {{ prediction_text }} </h2>
+        <a href="{{url_for('about_model')}}" class="btn btn--prediction">Learn More About Our Predictive Model</a>
+
+
+    </section>
+
+    <br>
+    <br>
+
+    </div>
     </section>
 
 
