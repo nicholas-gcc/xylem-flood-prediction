@@ -5,6 +5,8 @@ Tools relating to the Xylem Global Innovation Challenge on Urban Flood Predictio
 
 In this Challenge, we aim to use predictive modelling to help Portland, Oregon residents predict and take pre-emptive action against floods.
 
+You can access Floodopedia [here](https://floodopedia.herokuapp.com/)
+
 ## Setup Instructions
 
 ### Dependencies Setup
@@ -29,12 +31,23 @@ In this Challenge, we aim to use predictive modelling to help Portland, Oregon r
 ### About the prediction model
 - The decision classifiers used are Gage Height, Turbidity and Discharge. 
 - As flooding is an extreme and rare event, available USGS Data had weak correlations (<0.20) with flooding. However, Gage Height, Turbidity and Discharge had the strongest correlations with flooding
-[!heatmap](/static/heatmap.png)
--                                                                                               
-
-
+<img src="/static/heatmap.PNG" width="500px"/>
+ - By using Gage Height, Turbidity and Discharge as classifiers, the Random Forest algorithm is utilised in decision-making for flood predictions. The use of all three classifiers strengthened the multi-dimensionality of flood prediction in Random Forest, yielding a 98% accuracy rate on a 75/25 training-test split
+<img src="/static/accuracy_prediction.PNG" width="500px"/>
+  
 ### Modifying the Prediction Model
 1. If you wish to populate the dataset with newer data, you can pull raw values from the [USGS Fanno Creek Website](https://waterdata.usgs.gov/nwis/uv?site_no=14206950)
 1. Modify flood `flood_prediction_model.py` to your liking and seralize your modified model as a pickle file by running `pickle.dump(<model-variable-name>, open('<your-filename>.pkl','wb'))`
 1. In `app.py`, de-serialize `<your-filename>.pkl` by taking pickle.load(open('<your-filename>.pkl', 'rb')) and you can now run the `.predict()` method of your model on a dataset
+  
+## Server and Data
+  
+### About the server
+- Floodopedia runs on Python's `Flask` library and uses REST API to make requests and responses between and within webpages. 
+- Floodopedia is designed in such a way that each refresh fetches new data from the USGS Fanno Creek website (if any).
+  
+### Web-scraping and data
+- BeautifulSoup4 is used to scrape HTML text data from the USGS Fanno Creek Site. Floodopedia's design deliberately omits the use of a webdriver to bypass dependency issues on different machines and no external installation is needed.
+- The variable `formatted_description` returns data in the form of 'Most recent instantaneous value: 15.7 05-28-2021   02:00 PDT'
+- Regular expressions are used to format the scraped data. `re.findall(r'[\d\.\d]+', formatted_description)[0]` returns raw data (i.e. 15.7), while `(re.findall(r'((0[1-9]|1[0-2])\-(0[1-9]|1\d|2\d|3[01])\-(19|20)\d{2}\s\s([0-1]?[0-9]|2[0-3]):[0-5][0-9]\s([P][D][T])\s)$', formatted_description))[0][0]` returns date, time and timezone (i.e. 05-28-2021   02:00 PDT)
 
