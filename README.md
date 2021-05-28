@@ -7,6 +7,8 @@ In this Challenge, we aim to use predictive modelling to help Portland, Oregon r
 
 You can access Floodopedia [here](https://floodopedia.herokuapp.com/)
 
+This is an open-source project and we strive to continually improve the functionality of Floodopedia. Feel free to make a [pull request](https://github.com/nicholas-gcc/xylem-flood-prediction/pulls)!
+
 ## Setup Instructions
 
 ### Dependencies Setup
