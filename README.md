@@ -29,6 +29,8 @@ In this Challenge, we aim to use predictive modelling to help Portland, Oregon r
 ### About the prediction model
 - The decision classifiers used are Gage Height, Turbidity and Discharge. 
 - As flooding is an extreme and rare event, available USGS Data had weak correlations (<0.20) with flooding. However, Gage Height, Turbidity and Discharge had the strongest correlations with flooding
+[!heatmap](/static/heatmap.png)
+-                                                                                               
 
 
 ### Modifying the Prediction Model
