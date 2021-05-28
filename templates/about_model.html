@@ -73,12 +73,12 @@
             <a href="https://waterdata.usgs.gov/nwis/uv?site_no=14206950">USGS Fanno Creek Station</a> to collect real-time data and make real-time predictions by passing the values to a pickle file containing the serialized prediction model.
         </p>
         <h3>Flask Server Functionality</h3>
-        <img src="{{ url_for('static', filename='Rest_API.png ') }}" , style="width:450px">
+        <img src="{{ url_for('static', filename='Rest_API.png') }}" , style="width:450px">
         <h6>A general flow of the REST API on Flask</h6>
         <p>The predictive modelling and web functionality is built on REST API frameworks defined by Python's Flask library, a micro web framework that supports a compact set of URL endpoints that simplifies navigability, predictive modelling and web-scraping
             functionality with the HTTP 1.1 Protocol. Flask allows the website to be deployed on localhost on a specified port number for production and testing. </p>
         <h3>BeautifulSoup Web-Scraping</h3>
-        <img src="{{ url_for('static', filename='webscraping.png ') }}" , style="width:450px">
+        <img src="{{ url_for('static', filename='webscraping.png') }}" , style="width:450px">
         <h6>How web-scraping can be used to store structured data</h6>
         <p>The requests library in Python performs a GET method on the USGS Fanno Creek Site in order to render its HTML elements as a chunk of text. BeautifulSoup is then used to navigate various nodes and children to extract real-time data, which is then
             formatted to extract raw data and date-time values using Regular Expressions (RegEx) and passed on to Floodopedia to give real-time updates.</p>
