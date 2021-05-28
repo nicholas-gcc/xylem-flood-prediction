@@ -1,8 +1,10 @@
 numpy
-flask
-pickle
+Flask
+pickle4
 bs4
 seaborn
 matplotlib
 pandas
 scikit-learn
+sklearn
+gunicorn
