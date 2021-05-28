@@ -62,7 +62,10 @@
                     Temperature, water, degrees Celsius
                 </h4>
                 <p class="section__subtitle section__subtitle--prediction-data__item">
-                    {{temp_value}}
+                    <strong>{{temp_value}}</strong>
+                </p>
+                <p class="section__subtitle section__subtitle--prediction-data__item">
+                    Last updated: {{temp_date}}
                 </p>
 
             </div>
@@ -73,7 +76,10 @@
                     Discharge, cubic feet per second
                 </h4>
                 <p class="section__subtitle section__subtitle--prediction-data__item">
-                    {{discharge_value}}
+                    <strong>{{discharge_value}}</strong>
+                </p>
+                <p class="section__subtitle section__subtitle--prediction-data__item">
+                    Last updated: {{discharge_date}}
                 </p>
 
             </div>
@@ -81,10 +87,13 @@
             <!-- Portfolio item 03 -->
             <div class="prediction-data__item">
                 <h4 class="section__title section__title--prediction-data__item">
-                    Gage height, feet
+                    Gage height / stream stage, feet
                 </h4>
                 <p class="section__subtitle section__subtitle--prediction-data__item">
-                    {{gage_height}}
+                    <strong>{{gage_height}}</strong>
+                </p>
+                <p class="section__subtitle section__subtitle--prediction-data__item">
+                    Last updated: {{gage_height_date}}
                 </p>
 
             </div>
@@ -94,7 +103,10 @@
                 <h4 class="section__title section__title--prediction-data__item">
                     Specific conductance, water, microsiemens per cm</h4>
                 <p class="section__subtitle section__subtitle--prediction-data__item">
-                    {{conductance_value}}
+                    <strong>{{conductance_value}}</strong>
+                </p>
+                <p class="section__subtitle section__subtitle--prediction-data__item">
+                    Last updated: {{conductance_value_date}}
                 </p>
 
             </div>
@@ -105,7 +117,10 @@
                     Dissolved oxygen, water, mg per liter
                 </h4>
                 <p class="section__subtitle section__subtitle--prediction-data__item">
-                    {{dissolved_oxygen}}
+                    <strong>{{dissolved_oxygen}}</strong>
+                </p>
+                <p class="section__subtitle section__subtitle--prediction-data__item">
+                    Last updated: {{dissolved_oxygen_date}}
                 </p>
 
             </div>
@@ -113,15 +128,18 @@
             <!-- Portfolio item 06 -->
             <div class="prediction-data__item">
                 <h4 class="section__title section__title--prediction-data__item">
-                    Turbidity, water, unfiltered
+                    Turbidity, water, formazin nephelometric units (FNU)
                 </h4>
                 <p class="section__subtitle section__subtitle--prediction-data__item">
-                    {{turbidity}}
+                    <strong>{{turbidity}}</strong>
+                </p>
+                <p class="section__subtitle section__subtitle--prediction-data__item">
+                    Last updated: {{turbidity_date}}
                 </p>
             </div>
         </div>
         <h2 class="prediction_text"> {{ prediction_text }} </h2>
-        <a href="{{url_for('flood_risks')}}" class="btn btn--prediction">Learn More About Our Predictive Model</a>
+        <a href="{{url_for('about_model')}}" class="btn btn--prediction">Learn More About Our Predictive Model</a>
 
 
     </section>
