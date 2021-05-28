@@ -40,7 +40,7 @@ This is an open-source project and we strive to continually improve the function
 ### Modifying the Prediction Model
 1. If you wish to populate the dataset with newer data, you can pull raw values from the [USGS Fanno Creek Website](https://waterdata.usgs.gov/nwis/uv?site_no=14206950)
 1. Modify flood `flood_prediction_model.py` to your liking and seralize your modified model as a pickle file by running `pickle.dump(<model-variable-name>, open('<your-filename>.pkl','wb'))`
-1. In `app.py`, de-serialize `<your-filename>.pkl` by taking pickle.load(open('<your-filename>.pkl', 'rb')) and you can now run the `.predict()` method of your model on a dataset
+1. In `app.py`, de-serialize `<your-filename>.pkl` by taking `pickle.load(open('<your-filename>.pkl', 'rb'))` and you can now run the `.predict()` method of your model on a dataset
   
 ## Server and Data
   
