@@ -19,7 +19,7 @@ This is an open-source project and we strive to continually improve the function
 
 ### Running Floodopedia on localhost
 1. On your shell, run `python app.py`
-1. Go to localhost:5000 on your web browser and you begin by typing 'Hi' onto the input box. Alternatively, you can specify a different IP or port number on the `app.run(host='new-IP-address', port=<new-port-number>)` method in `app.py` and visit new-IP-address:<your-port-number> instead.
+1. Go to localhost:5000 on your web browser. Alternatively, you can specify a different IP or port number on the `app.run(host='new-IP-address', port=<new-port-number>)` method in `app.py` and visit new-IP-address:<your-port-number> instead.
 1. Press `Ctrl` + `C` to terminate server
   
 ### Running Floodopedia on the Internet (Production server)
