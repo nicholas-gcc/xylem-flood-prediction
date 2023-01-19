@@ -14,3 +14,4 @@ scipy==1.6.1
 seaborn==0.11.1
 selenium==3.141.0
 soupsieve==2.2.1
+gunicorn
