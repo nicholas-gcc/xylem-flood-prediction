@@ -13,7 +13,7 @@ def home():
     data_list = []
     datetime_list = []
     data_stringified = []
-    source = requests.get('https://waterdata.usgs.gov/nwis/uv?site_no=14206950').text
+    source = requests.get('https://waterdata.usgs.gov/nwis/uv?site_no=14206950&legacy=1').text
     soup = BeautifulSoup(source)
     for element in soup.findAll('div', {"class" : "stationContainerHeading"}):
         formatted_description = element.next_sibling.strip('\n\n').encode('ascii', 'ignore').decode('utf-8')
