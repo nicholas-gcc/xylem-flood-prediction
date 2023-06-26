@@ -5,7 +5,7 @@ Tools relating to the Xylem Global Innovation Challenge on Urban Flood Predictio
 
 In this Challenge, we aim to use predictive modelling to help Portland, Oregon residents predict and take pre-emptive action against floods.
 
-You can access Floodopedia [here](https://floodopedia.herokuapp.com/)
+You can access the Floodopedia live app [here](https://floodopedia-710d10e3e279.herokuapp.com)
 
 This is an open-source project and we strive to continually improve the functionality of Floodopedia. Feel free to make a [pull request](https://github.com/nicholas-gcc/xylem-flood-prediction/pulls) or raise [issues](https://github.com/nicholas-gcc/xylem-flood-prediction/issues)!
 
@@ -19,7 +19,7 @@ This is an open-source project and we strive to continually improve the function
 
 ### Running Floodopedia on localhost
 1. On your shell, run `python app.py`
-1. Go to localhost:5000 on your web browser. Alternatively, you can specify a different IP or port number on the `app.run(host='new-IP-address', port=<new-port-number>)` method in `app.py` and visit new-IP-address:<your-port-number> instead.
+1. Go to localhost:5001 on your web browser. Alternatively, you can specify a different IP or port number on the `app.run(host='new-IP-address', port=<new-port-number>)` method in `app.py` and visit new-IP-address:<your-port-number> instead.
 1. Press `Ctrl` + `C` to terminate server
   
 ### Running Floodopedia on the Internet (Production server)
