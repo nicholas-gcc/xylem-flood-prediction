@@ -24,7 +24,7 @@ This is an open-source project and we strive to continually improve the function
   
 ### Running Floodopedia on the Internet (Production server)
 1. On your shell, run `python app.py`
-1. Open the ngrok shell and run `ngrok http 5000` or `ngrok http <your-port-number>`
+1. Open the ngrok shell and run `ngrok http 5001` or `ngrok http <your-port-number>`
 1. You should see a temporary link on your shell and you can access Floodopedia via the displayed link.
 1. Press `Ctrl` + `C` to terminate server
   
