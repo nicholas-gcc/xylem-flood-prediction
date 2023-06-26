@@ -6,48 +6,63 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import confusion_matrix
 import pickle
+
+def load_and_process_data(path: str, columns: list, dropna: bool = True, numeric: bool = True):
+    """Load a CSV file as a DataFrame and process it."""
+    df = pd.read_csv(path)
+    
+    if dropna:
+        df = df.dropna()
+        
+    df = df.iloc[1:]
+    
+    df.columns = columns
+
+    if numeric:
+        df = df.apply(pd.to_numeric, errors='coerce')
+
+    return df
+
+def split_dataset(X, y, test_size=0.25):
+    """Split the Dataset into Train and Test."""
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size)
+
+    # Check the sample sizes
+    print("Train Set :", y_train.shape, X_train.shape)
+    print("Test Set  :", y_test.shape, X_test.shape)
+
+    return X_train, X_test, y_train, y_test
+
+def train_model(X_train, y_train, n_estimators=100, max_depth=4):
+    """Train the model using Random Forest Classifier."""
+    rforest = RandomForestClassifier(n_estimators=n_estimators, max_depth=max_depth)  
+    rforest.fit(X_train, y_train.values.ravel())
+
+    # Save the model
+    pickle.dump(rforest, open('model.pkl','wb'))
+
+    return rforest
+
 sb.set()
 
-fcd = pd.read_csv('resources/FannoCreekDurham.1.csv')
-fcd_1=pd.DataFrame.dropna(fcd)
-fcd_2 = fcd_1.iloc[1:]
-fcd_2.columns=['Agency_cd','Site_No','Datetime','Timezone','Gage Height','Discharge','Temperature','Turbidity','Flooding']
+fcd_columns = ['Agency_cd','Site_No','Datetime','Timezone','Gage Height','Discharge','Temperature','Turbidity','Flooding']
+fcd = load_and_process_data('resources/FannoCreekDurham.1.csv', fcd_columns)
 
-fc5 = pd.read_csv('resources/FannoCreek56th.csv')
-fc5_1=pd.DataFrame.dropna(fc5)
-fc5_2 = fc5_1.iloc[1:]
-fc5_2.columns=['Agency_cd','Site_No','Datetime','Timezone','Gage Height','Discharge']
+fc5_columns = ['Agency_cd','Site_No','Datetime','Timezone','Gage Height','Discharge']
+fc5 = load_and_process_data('resources/FannoCreek56th.csv', fc5_columns)
 
-fcd_3= pd.DataFrame(fcd_2[['Gage Height','Discharge','Temperature','Turbidity','Flooding']])
-fcd_4=fcd_3.apply(pd.to_numeric,errors='coerce')
-
-fc5_3= pd.DataFrame(fc5_2[['Gage Height','Discharge']])
-fc5_4=fc5_3.apply(pd.to_numeric,errors='coerce')
-
-frames = [fcd_4,fc5_4]
-combined = pd.concat(frames,axis=0)
-combined_1=pd.DataFrame.dropna(combined)
+# Combine the dataframes
+frames = [fcd, fc5]
+combined = pd.concat(frames,axis=0).dropna()
 
 predictors = ['Gage Height','Discharge','Turbidity']
-y = pd.DataFrame(combined_1["Flooding"])
-X = pd.DataFrame(combined_1[predictors])
+y = pd.DataFrame(combined["Flooding"])
+X = pd.DataFrame(combined[predictors])
 
-# Split the Dataset into Train and Test
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.25)
+X_train, X_test, y_train, y_test = split_dataset(X, y)
 
-# Check the sample sizes
-print("Train Set :", y_train.shape, X_train.shape)
-print("Test Set  :", y_test.shape, X_test.shape)
+# Train the model
+rforest = train_model(X_train, y_train)
 
-rforest = RandomForestClassifier(n_estimators = 100, max_depth = 4)  # create the object
-rforest.fit(X_train, y_train.values.ravel())                         # train the model
-
-# Saving model to current directory
-# Pickle serializes objects so they can be saved to a file, and loaded in a program again later on.
-pickle.dump(rforest, open('model.pkl','wb'))
-
-#Loading model to compare the results
+# Load the model to compare the results
 model = pickle.load(open('model.pkl','rb'))
-print(model.predict([[6.00, 500.0, 69.1]]))
-
-
